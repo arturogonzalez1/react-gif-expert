@@ -6,7 +6,6 @@ export const GifExpertApp = () => {
     const [categories, setCategories] = useState(['Dragon Ball']);
     
     const onAddCategory = (category) => {
-        console.log(category);
         setCategories([category, ...categories]);
     };
 
@@ -14,9 +13,7 @@ export const GifExpertApp = () => {
     <>
         <h1>GifExpertApp</h1>
 
-        <AddCategory
-            onNewCategory={ onAddCategory }
-        />
+        <AddCategory onNewCategory={ onAddCategory } />
 
         {
             categories.map(category => <GifGrid key={category} category={category} />)
