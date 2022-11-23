@@ -29,7 +29,7 @@ describe('Tests in <GifItem />', () => {
     test('Should show title in the component', () => { 
 
         render(<GifItem { ...gif }/>);
-        expect(screen.getByText(gif.title)).toBeFalsy();
+        expect(screen.getByText(gif.title)).toBeTruthy();
 
     });
 
