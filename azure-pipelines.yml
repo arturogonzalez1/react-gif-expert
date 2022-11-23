@@ -32,9 +32,21 @@ stages:
     - task: Bash@3
       inputs:
         targetType: 'inline'
-        script: |
-                npm install
-                npm run build
+        script: 'npm install'
+      displayName: 'Install Dependencies'
+    
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'npm run test'
+      displayName: 'Run Tests'
+    
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'npm run build'
+      displayName: 'Build Application'
+
     - task: PublishPipelineArtifact@1
       displayName: 'Uploading Artifact'
       inputs:
