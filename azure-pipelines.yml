@@ -55,10 +55,10 @@ stages:
         artifact: 'gif-expert-artifact'
         publishLocation: 'pipeline'
       
-    # - task: AzureStaticWebApp@0
-    #   inputs:
-    #     is_static_export: true
-    #     app_location: '/dist'
-    #     skip_api_build: true
-    #     skip_app_build: true
-    #     azure_static_web_apps_api_token: $(deploymentToken)
+    - task: AzureStaticWebApp@0
+      inputs:
+        is_static_export: true
+        app_location: '/dist'
+        skip_api_build: true
+        skip_app_build: true
+        azure_static_web_apps_api_token: $(deploymentToken)
