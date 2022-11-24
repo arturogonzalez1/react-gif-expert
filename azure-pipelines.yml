@@ -58,7 +58,7 @@ stages:
     - task: AzureStaticWebApp@0
       inputs:
         is_static_export: true
-        app_location: '/'
+        app_location: '$(Pipeline.Workspace)/s/dist'
         skip_api_build: true
         skip_app_build: true
         azure_static_web_apps_api_token: $(deploymentToken)
