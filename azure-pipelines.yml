@@ -58,6 +58,6 @@ stages:
     - task: AzureStaticWebApp@0
       inputs:
         app_location: '/'
-        api_location: 'api'
-        output_location: '/src'
+        skip_api_build: true
+        skip_app_build: true
         azure_static_web_apps_api_token: $(deploymentToken)
