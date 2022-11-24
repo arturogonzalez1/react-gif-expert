@@ -10,6 +10,7 @@ variables:
 
   # Azure Resource Manager connection created during pipeline creation
   azureSubscription: 'f43edd4e-7d61-4337-8d77-b9118a8768b4'
+  deploymentToken: '2d4fe12e665b02eb9b8b67ae49b5ed83c92c3b0f42c3b19e1855cf4dedda36902-a8be39a4-5f0a-47bf-9f20-9e74a3ec9194010149902'
   webAppName: 'gif-expert'
   environmentName: 'gif-expert'
   vmImageName: 'ubuntu-latest'
@@ -53,3 +54,10 @@ stages:
         targetPath: '$(Pipeline.Workspace)/s/dist'
         artifact: 'gif-expert-artifact'
         publishLocation: 'pipeline'
+      
+    - task: AzureStaticWebApp@0
+      inputs:
+        app_location: '/'
+        api_location: 'api'
+        output_location: '/src'
+        azure_static_web_apps_api_token: deploymentToken
